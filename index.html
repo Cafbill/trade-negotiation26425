@@ -3,105 +3,179 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>外贸谈判实战复盘 - 商务英语学习</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>外贸谈判实战复盘 - 提升竞争力</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
-        body { font-family: 'Inter', sans-serif; }
+        :root {
+            --primary-blue: #2563eb;
+            --bg-gray: #f8fafc;
+            --text-dark: #1e293b;
+            --buyer-bg: #f1f5f9;
+            --seller-bg: #eff6ff;
+            --accent-blue: #3b82f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-gray);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #64748b;
+            font-size: 16px;
+        }
+
+        /* 导航标签 */
+        .nav-tabs {
+            display: flex;
+            background: white;
+            padding: 8px;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 24px;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+            color: #64748b;
+        }
+
+        .tab.active {
+            background-color: var(--primary-blue);
+            color: white;
+        }
+
+        /* 对话框容器 */
+        .chat-container {
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .bubble {
+            margin-bottom: 24px;
+            padding: 20px;
+            border-radius: 12px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .role-label {
+            font-weight: 800;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        /* 卖方样式 (Ella) */
+        .seller {
+            background-color: var(--seller-bg);
+            border-left: 4px solid var(--accent-blue);
+        }
+        .seller .role-label { color: var(--accent-blue); }
+
+        /* 买方样式 (Von Klaus) */
+        .buyer {
+            background-color: var(--buyer-bg);
+            border-left: 4px solid #94a3b8;
+        }
+        .buyer .role-label { color: #64748b; }
+
+        .translation {
+            display: block;
+            margin-top: 8px;
+            font-size: 0.95em;
+            color: #475569;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 8px;
+        }
+
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 14px;
+            color: #94a3b8;
+        }
     </style>
 </head>
-<body class="bg-slate-50">
-    <div id="root"></div>
+<body>
 
-    <script type="text/babel">
-        const { useState } = React;
+<div class="container">
+    <header>
+        <h1>外贸谈判实战复盘</h1>
+        <div class="subtitle">点击下方标签切换学习维度</div>
+    </header>
 
-        const App = () => {
-            const [activeTab, setActiveTab] = useState('dialogue');
+    <div class="nav-tabs">
+        <div class="tab active">情景再现</div>
+        <div class="tab">词汇解析</div>
+        <div class="tab">谈判技巧</div>
+    </div>
 
-            const dialogueData = [
-                { role: 'Buyer', text: "We're interested, but your unit price is 15% above our budget.", highlight: "above our budget" },
-                { role: 'Seller', text: "I understand. However, our quality meets ISO standards which reduces your long-term maintenance costs.", highlight: "reduces long-term costs" },
-                { role: 'Buyer', text: "If we increase the order volume to 5,000 units, can you offer a discount?", highlight: "order volume" }
-            ];
+    <div class="chat-container">
+        <div class="bubble seller">
+            <span class="role-label">Ella (Seller)</span>
+            <div>Good morning, Mr. Von Klaus, thank you for your patience; I’m calling to formally present our offer for the custom packaging units you inquired about, which I've just sent to your email.</div>
+            <div class="translation">早上好，冯·克劳斯先生，感谢您的耐心等待；我这次来电是就您之前咨询的定制包装单元向您正式报盘，报价单我已经发送到您的邮箱了。</div>
+        </div>
 
-            const vocabData = [
-                { word: "Concession", mean: "让步", detail: "In negotiations, a compromise or yielding." },
-                { word: "Lead time", mean: "交货期", detail: "The time between the initiation and completion of a production process." },
-                { word: "Break-even point", mean: "盈亏平衡点", detail: "The production level where total revenues equal total expenses." }
-            ];
+        <div class="bubble buyer">
+            <span class="role-label">Von Klaus (Buyer)</span>
+            <div>I've glanced at it, Ella, and quite frankly, I'm appalled by the audacity of these numbers; you must think my company prints money, because this "offer" is nothing short of daylight robbery compared to your competitors.</div>
+            <div class="translation">我大概扫了一眼，艾拉，坦白说，我被这些数字的厚颜无耻震惊了；你们一定觉得我公司是印钞的吧，因为跟你们的竞争对手相比，这个所谓的“报盘”简直就是光天化日下的抢劫。</div>
+        </div>
 
-            return (
-                <div class="max-w-4xl mx-auto p-6">
-                    <header class="mb-10 text-center">
-                        <h1 class="text-3xl font-bold text-slate-800">外贸谈判实战复盘</h1>
-                        <p class="text-slate-500 mt-2">点击下方标签切换学习维度</p>
-                    </header>
+        <div class="bubble seller">
+            <span class="role-label">Ella (Seller)</span>
+            <div>I completely understand your concern regarding the budget, but I must respectfully point out that comparing our premium, eco-friendly materials with the substandard options other suppliers likely quoted you is an unfair comparison that ignores the long-term brand value we guarantee.</div>
+            <div class="translation">我完全理解您对预算的顾虑，但我必须恭敬地指出，将我们优质、环保的材料与其他供应商可能给您报的低劣选项相提并论是不公平的，这种做法忽视了我们能保证的长期品牌价值。</div>
+        </div>
 
-                    <div class="flex space-x-2 mb-8 bg-white p-1 rounded-xl shadow-sm border border-slate-200">
-                        {['dialogue', 'vocab', 'strategy'].map(tab => (
-                            <button 
-                                key={tab}
-                                onClick={() => setActiveTab(tab)}
-                                class={`flex-1 py-2 px-4 rounded-lg transition-all ${activeTab === tab ? 'bg-blue-600 text-white shadow-md' : 'text-slate-600 hover:bg-slate-100'}`}
-                            >
-                                {tab === 'dialogue' ? '情景再现' : tab === 'vocab' ? '词汇解析' : '谈判技巧'}
-                            </button>
-                        ))}
-                    </div>
+        <div class="bubble buyer">
+            <span class="role-label">Von Klaus (Buyer)</span>
+            <div>Spare me the marketing spiel about "brand value," because at this price point, I'm not buying value, I'm buying overpriced cardboard, so unless you can slash this total by at least fifteen percent right now, don't bother following up.</div>
+            <div class="translation">别跟我扯什么“品牌价值”的营销废话了，因为在这个价位上，我买的不是价值，是漫天要价的纸板，所以除非你现在能把总价至少砍掉15%，否则就别费心再跟进这件事了。</div>
+        </div>
 
-                    <div class="bg-white p-8 rounded-2xl shadow-xl border border-slate-100 min-h-[400px]">
-                        {activeTab === 'dialogue' && (
-                            <div class="space-y-4">
-                                {dialogueData.map((d, i) => (
-                                    <div key={i} class={`p-4 rounded-lg ${d.role === 'Buyer' ? 'bg-slate-50 border-l-4 border-slate-400' : 'bg-blue-50 border-l-4 border-blue-400'}`}>
-                                        <span class="font-bold text-sm uppercase tracking-wider text-slate-400">{d.role}</span>
-                                        <p class="text-slate-700 mt-1">{d.text}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+        <div class="bubble seller">
+            <span class="role-label">Ella (Seller)</span>
+            <div>While a fifteen percent reduction is mathematically impossible without compromising the structural integrity of the product, I am authorized to offer a five percent discount on the condition that you increase your initial order volume by twenty percent and agree to a Letter of Credit payment term.</div>
+            <div class="translation">虽然在不牺牲产品结构完整性的前提下，降价15%在数学上是不可能的，但我有权提供一个5%的折扣，条件是您能将首次订单量增加20%，并同意采用信用证的付款方式。</div>
+        </div>
+    </div>
 
-                        {activeTab === 'vocab' && (
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                {vocabData.map((v, i) => (
-                                    <div key={i} class="p-4 border border-slate-100 rounded-xl hover:bg-blue-50 transition-colors">
-                                        <h3 class="text-lg font-bold text-blue-600">{v.word} <span class="text-sm font-normal text-slate-400">{v.mean}</span></h3>
-                                        <p class="text-slate-600 text-sm mt-2">{v.detail}</p>
-                                    </div>
-                                ))}
-                            </div>
-                        )}
+    <footer>
+        © 2026 外贸职场竞争力提升 | Powered by Gemini Canvas
+    </footer>
+</div>
 
-                        {activeTab === 'strategy' && (
-                            <div class="prose prose-slate">
-                                <h3 class="text-xl font-semibold mb-4">谈判逻辑深度剖析</h3>
-                                <ul class="space-y-4 text-slate-600">
-                                    <li class="flex items-start">
-                                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded mr-3 text-xs font-bold">技巧 1</span>
-                                        以“价值”对冲“价格”：当客户抱怨价格高时，应迅速转向维护成本、耐用性等隐形价值。
-                                    </li>
-                                    <li class="flex items-start">
-                                        <span class="bg-green-100 text-green-700 px-2 py-1 rounded mr-3 text-xs font-bold">技巧 2</span>
-                                        阶梯式报价：利用起订量（MOQ）作为筹码，引导客户增加订单量以换取单价优惠。
-                                    </li>
-                                </ul>
-                            </div>
-                        )}
-                    </div>
-
-                    <footer class="mt-12 text-center text-slate-400 text-sm">
-                        © 2026 外贸职场竞争力提升 | Powered by Gemini Canvas
-                    </footer>
-                </div>
-            );
-        };
-
-        const root = ReactDOM.createRoot(document.getElementById('root'));
-        root.render(<App />);
-    </script>
 </body>
 </html>
