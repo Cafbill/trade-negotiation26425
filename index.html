@@ -4,120 +4,136 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>外贸谈判实战复盘</title>
-    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body { background-color: #f3f4f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif; }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .tabs {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #f0f0f0;
+            cursor: pointer;
+            margin-right: 5px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        .tab-button.active {
+            background-color: #007bff;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .dialogue {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-left: 4px solid #007bff;
+            background-color: #f9f9f9;
+        }
+        .speaker {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
     </style>
 </head>
-<body class="p-4 md:p-8">
-    <div class="max-w-4xl mx-auto bg-white rounded-3xl shadow-sm border border-gray-100 overflow-hidden">
-        <div class="pt-8 pb-4 text-center">
-            <h1 class="text-2xl font-bold text-gray-800">外贸谈判实战复盘</h1>
-            <p class="text-xs text-gray-400 mt-2">点击下方标签切换学习维度</p>
+<body>
+    <div class="container">
+        <h1>外贸谈判实战复盘</h1>
+        <p>点击下方标签切换学习维度</p>
+
+        <div class="tabs">
+            <button class="tab-button active" data-tab="scenario">情景再现</button>
+            <button class="tab-button" data-tab="vocabulary">词汇解析</button>
+            <button class="tab-button" data-tab="techniques">谈判技巧</button>
         </div>
 
-        <div class="flex justify-center px-4 mb-6">
-            <div class="bg-gray-50 p-1 rounded-xl flex space-x-1 w-full max-w-lg border border-gray-100">
-                <button onclick="switchTab('scenario')" id="btn-scenario" class="tab-btn flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200 bg-blue-600 text-white">
-                    情景再现
-                </button>
-                <button onclick="switchTab('vocab')" id="btn-vocab" class="tab-btn flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200 text-gray-500 hover:bg-gray-100">
-                    词汇解析
-                </button>
-                <button onclick="switchTab('skills')" id="btn-skills" class="tab-btn flex-1 py-2 px-4 rounded-lg text-sm font-medium transition-all duration-200 text-gray-500 hover:bg-gray-100">
-                    谈判技巧
-                </button>
+        <div id="scenario" class="tab-content active">
+            <div class="dialogue">
+                <div class="speaker">ELLA (SELLER)</div>
+                <p>Good morning, Mr. Von Klaus, thank you for your patience; I'm calling to formally present our offer for the custom packaging units you inquired about, which I've just sent to your email.</p>
+                <p>早上好，冯·克劳斯先生，感谢您的耐心等待；我这次来电是就您之前咨询的定制包装单元向您正式报盘，报价单我已经发送到您的邮箱了。</p>
+            </div>
+            <div class="dialogue">
+                <div class="speaker">VON KLAUS (BUYER)</div>
+                <p>I've glanced at it, Ella, and quite frankly, I'm appalled by the audacity of these numbers; you must think my company prints money, because this "offer" is nothing short of daylight robbery compared to your competitors.</p>
+                <p>我大概扫了一眼，艾拉，坦白说，我被这些数字的厚颜无耻震惊了；你们一定觉得我公司是印钞的吧，因为跟你们的竞争对手相比，这个所谓的“报盘”简直就是光天化日下的抢劫。</p>
+            </div>
+            <div class="dialogue">
+                <div class="speaker">ELLA (SELLER)</div>
+                <p>I completely understand your concern regarding the budget, but I must respectfully point out that comparing our premium, eco-friendly materials with the substandard options other suppliers likely quoted you is an unfair comparison that ignores the long-term brand value we guarantee.</p>
+                <p>我完全理解您对预算的顾虑，但我必须恭敬地指出，将我们优质、环保的材料与其他供应商可能给您报的低劣选项相提并论是不公平的，这种做法忽视了我们能保证的长期品牌价值。</p>
+            </div>
+            <div class="dialogue">
+                <div class="speaker">VON KLAUS (BUYER)</div>
+                <p>Spare me the marketing spiel about "brand value," because at this price point, I'm not buying value, I'm buying overpriced cardboard, so unless you can slash this total by at least fifteen percent right now, don't bother following up.</p>
+                <p>别跟我扯什么“品牌价值”的营销废话了，因为在这个价位上，我买的不是价值，是漫天要价的纸板，所以除非你现在能把总价至少砍掉15%，否则就别费心再跟进这件事了。</p>
+            </div>
+            <div class="dialogue">
+                <div class="speaker">ELLA (SELLER)</div>
+                <p>While a fifteen percent reduction is mathematically impossible without compromising the structural integrity of the product, I am authorized to offer a five percent discount on the condition that you increase your initial order volume by twenty percent and agree to a Letter of Credit payment term.</p>
+                <p>虽然在不牺牲产品结构完整性的前提下，降价15%在数学上是不可能的，但我有权提供一个5%的折扣，条件是您能将首次订单量增加20%，并同意采用信用证的付款方式。</p>
             </div>
         </div>
 
-        <div class="px-6 pb-10">
-            <div id="scenario" class="tab-content active space-y-4">
-                <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-400">
-                    <p class="text-xs font-bold text-blue-600 mb-1 uppercase">ELLA (SELLER)</p>
-                    <p class="text-sm text-gray-800 leading-relaxed">Good morning, Mr. Von Klaus, thank you for your patience; I'm calling to formally present our offer for the custom packaging units you inquired about, which I've just sent to your email.</p>
-                    <p class="text-sm text-gray-500 mt-2 italic">早上好，冯·克劳斯先生，感谢您的耐心等待；我这次来电就是为您之前咨询的定制包装单元向您正式报盘，报价单我已经发送到您的邮箱了。</p>
-                </div>
-
-                <div class="bg-gray-50 p-4 rounded-xl border-l-4 border-gray-300">
-                    <p class="text-xs font-bold text-gray-600 mb-1 uppercase">VON KLAUS (BUYER)</p>
-                    <p class="text-sm text-gray-800 leading-relaxed">I've glanced at it, Ella, and quite frankly, I'm appalled by the audacity of these numbers; you must think my company prints money, because this "offer" is nothing short of daylight robbery compared to your competitors.</p>
-                    <p class="text-sm text-gray-500 mt-2 italic">我大概扫了一眼，艾拉，坦白说，我被这些数字的厚颜无耻震惊了；你们一定觉得我公司是印钞的吧，因为跟你们的竞争对手相比，这个所谓的“报盘”简直就是光天化日下的抢劫。</p>
-                </div>
-
-                <div class="bg-blue-50 p-4 rounded-xl border-l-4 border-blue-400">
-                    <p class="text-xs font-bold text-blue-600 mb-1 uppercase">ELLA (SELLER)</p>
-                    <p class="text-sm text-gray-800 leading-relaxed">I completely understand your concern regarding the budget, but I must respectfully point out that comparing our premium, eco-friendly materials with the substandard options other suppliers likely quoted you is an unfair comparison that ignores the long-term brand value we guarantee.</p>
-                    <p class="text-sm text-gray-500 mt-2 italic">我完全理解您对预算的顾虑，但我必须恭敬地指出，将我们优质、环保的材料与其他供应商可能给您报的低劣选项相提并论是不公平的，这种做法忽视了我们能保证的长期品牌价值。</p>
-                </div>
-                
-                </div>
-
-            <div id="vocab" class="tab-content space-y-6">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="p-4 border border-gray-100 rounded-xl">
-                        <h3 class="text-blue-600 font-bold mb-1">Audacity</h3>
-                        <p class="text-sm text-gray-700">厚颜无耻/大胆。在谈判中形容对方报价或要求极度过分。</p>
-                    </div>
-                    <div class="p-4 border border-gray-100 rounded-xl">
-                        <h3 class="text-blue-600 font-bold mb-1">Daylight Robbery</h3>
-                        <p class="text-sm text-gray-700">光天化日下的抢劫。俚语，指价格高得离谱，极其不合理。</p>
-                    </div>
-                    <div class="p-4 border border-gray-100 rounded-xl">
-                        <h3 class="text-blue-600 font-bold mb-1">Marketing Spiel</h3>
-                        <p class="text-sm text-gray-700">营销废话/花言巧语。客户用来打断销售话术的常用词。</p>
-                    </div>
-                    <div class="p-4 border border-gray-100 rounded-xl">
-                        <h3 class="text-blue-600 font-bold mb-1">Structural Integrity</h3>
-                        <p class="text-sm text-gray-700">结构完整性。在此处指产品质量底线，不能为了降价牺牲质量。</p>
-                    </div>
-                </div>
-            </div>
-
-            <div id="skills" class="tab-content">
-                <div class="space-y-4">
-                    <div class="p-4 bg-yellow-50 rounded-xl border-l-4 border-yellow-400">
-                        <h3 class="font-bold text-gray-800 mb-1">1. 应对极端砍价 (Dealing with Highballing)</h3>
-                        <p class="text-sm text-gray-600">客户使用 "Daylight robbery" 等情绪化词汇是为了打破你的心理防线。保持冷静，将焦点从价格转移到价值（Value）上。</p>
-                    </div>
-                    <div class="p-4 bg-green-50 rounded-xl border-l-4 border-green-400">
-                        <h3 class="font-bold text-gray-800 mb-1">2. 重新定义比较标准 (Reframing)</h3>
-                        <p class="text-sm text-gray-600">当客户拿低价竞争对手做对比时，应指出“规格差异”或“长期价值”，强调这是“不公平的比较”。</p>
-                    </div>
-                    <div class="p-4 bg-blue-50 rounded-xl border-l-4 border-blue-400">
-                        <h3 class="font-bold text-gray-800 mb-1">3. 有条件的让步 (Conditional Concessions)</h3>
-                        <p class="text-sm text-gray-600">永远不要无条件降价。如代码末尾所示：如需 5% 折扣，必须增加 20% 订单量并更改付款方式（L/C）。</p>
-                    </div>
-                </div>
-            </div>
+        <div id="vocabulary" class="tab-content">
+            <h2>词汇解析</h2>
+            <ul>
+                <li><strong>audacity</strong> - 厚颜无耻，大胆</li>
+                <li><strong>daylight robbery</strong> - 光天化日下的抢劫（形容价格过高）</li>
+                <li><strong>substandard</strong> - 不合格的，低劣的</li>
+                <li><strong>marketing spiel</strong> - 营销套话</li>
+                <li><strong>slash</strong> - 大幅削减</li>
+                <li><strong>Letter of Credit</strong> - 信用证</li>
+            </ul>
         </div>
 
-        <div class="bg-gray-50 py-4 text-center border-t border-gray-100">
-            <p class="text-[10px] text-gray-400">© 2026 外贸职场竞争力提升 | Powered by Interactive Canvas</p>
+        <div id="techniques" class="tab-content">
+            <h2>谈判技巧</h2>
+            <ol>
+                <li><strong>价值主张</strong>：强调产品优势（如环保材料、长期品牌价值），避免陷入单纯价格战。</li>
+                <li><strong>条件式让步</strong>：在对方要求降价时，提出附加条件（如增加订单量、改变付款方式），实现双赢。</li>
+                <li><strong>情绪管理</strong>：面对对方的强硬态度，保持专业冷静，用数据（如成本结构）支撑立场。</li>
+                <li><strong>锚定效应</strong>：先提出合理报价，为后续谈判设定基准，避免被对方压价过低。</li>
+            </ol>
         </div>
     </div>
 
     <script>
-        function switchTab(tabId) {
-            // 隐藏所有内容
-            const contents = document.querySelectorAll('.tab-content');
-            contents.forEach(content => content.classList.remove('active'));
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+                // 给当前按钮添加active类
+                button.classList.add('active');
 
-            // 显示选中的内容
-            document.getElementById(tabId).classList.add('active');
-
-            // 更新按钮样式
-            const buttons = document.querySelectorAll('.tab-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-blue-600', 'text-white');
-                btn.classList.add('text-gray-500', 'hover:bg-gray-100');
+                // 隐藏所有内容
+                document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+                // 显示对应内容
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
             });
-
-            const activeBtn = document.getElementById('btn-' + tabId);
-            activeBtn.classList.remove('text-gray-500', 'hover:bg-gray-100');
-            activeBtn.classList.add('bg-blue-600', 'text-white');
-        }
+        });
     </script>
 </body>
 </html>
